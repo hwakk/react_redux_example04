@@ -3,10 +3,31 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+
+function reducer(currentState, action) {
+  if(currentState === undefined) {
+    return {
+      number: 1
+    }
+  }
+  const newState = {...currentState};
+  if(action.type === 'PLUS') {
+    newState.number++;
+  }else if(action.type === 'MINUS') {
+    newState.number--;
+  }
+  return newState;
+}
+
+const store = createStore(reducer);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
