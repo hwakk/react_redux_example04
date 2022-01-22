@@ -14,9 +14,13 @@ function reducer(currentState, action) {
   }
   const newState = {...currentState};
   if(action.type === 'PLUS') {
-    newState.number++;
+    if(newState.number < 10) {
+      newState.number++;
+    }
   }else if(action.type === 'MINUS') {
-    newState.number--;
+    if(newState.number > 0) {
+      newState.number--;
+    }
   }
   return newState;
 }

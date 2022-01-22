@@ -1,7 +1,7 @@
 import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
 
-function App() {
+const App = () => {
   const number = useSelector((state) => state.number);
   return (
     <div id='container'>
@@ -14,17 +14,17 @@ function App() {
   );
 }
 
-function Left1() {
+const Left1 = (props) => {
   const number = useSelector((state) => state.number);
   return (
     <div>
-      <h1>Left1 : {number}</h1>
+      <h1>Left1 : {props.number}</h1>
       <Left2></Left2>
     </div>
   );
 }
 
-function Left2() {
+const Left2 = () => {
   const number = useSelector((state) => state.number);
   return (
     <div>
@@ -34,7 +34,7 @@ function Left2() {
   );
 }
 
-function Left3() {
+const Left3 = () => {
   const number = useSelector((state) => state.number);
   return (
     <div>
@@ -43,7 +43,7 @@ function Left3() {
   );
 }
 
-function Right1() {
+const Right1 = () => {
   return (
     <div>
       <h1>Right1</h1>
@@ -52,7 +52,7 @@ function Right1() {
   );
 }
 
-function Right2() {
+const Right2 = () => {
   return (
     <div>
       <h1>Right2</h1>
@@ -61,7 +61,7 @@ function Right2() {
   );
 }
 
-function Right3() {
+const Right3 = () => {
   const dispatch = useDispatch();
   const plusBtn = () => {
     dispatch({type: 'PLUS'});
